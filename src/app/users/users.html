@@ -1,0 +1,25 @@
+<section>
+  <h1 class="title">Users Dashboard</h1>
+  <table class="users">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Active</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of users; track user.id) {
+      <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.active }}</td>
+      </tr>
+      } @empty {
+      <tr>
+        <td [rowSpan]="0">There are no users</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</section>

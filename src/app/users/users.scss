@@ -1,0 +1,19 @@
+.title {
+  text-align: center;
+  margin: 30px 20px 80px 20px;
+}
+
+.users {
+  width: 80%;
+  min-width: 300px;
+  text-align: left;
+  margin: 0 auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+th,
+td {
+  padding: 10px 5px;
+  border-bottom: 1px solid #999999;
+}
