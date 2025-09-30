@@ -9,16 +9,16 @@
       </tr>
     </thead>
     <tbody>
-      @for (user of users; track user.id) {
-      <tr>
-        <td>{{ user.id }}</td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.active }}</td>
-      </tr>
+      @for (user of users$ | async; track user.id) {
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td><app-user-status [user]="user" /></td>
+        </tr>
       } @empty {
-      <tr>
-        <td [rowSpan]="0">There are no users</td>
-      </tr>
+        <tr>
+          <td [colSpan]="3">There are no users</td>
+        </tr>
       }
     </tbody>
   </table>
