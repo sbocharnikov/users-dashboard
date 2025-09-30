@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Add User</h2>
+<form [formGroup]="userForm" (ngSubmit)="saveUser()">
+  <mat-dialog-content class="content">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput type="text" formControlName="name" />
+      @if (name.hasError('required')) {
+        <mat-error>Name is required</mat-error>
+      } @else if (name.hasError('nameExists')) {
+        <mat-error>Name should be unique</mat-error>
+      }
+    </mat-form-field>
+    <br />
+    <mat-slide-toggle formControlName="active">Active</mat-slide-toggle>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button matButton (click)="onCancelClick()">Cancel</button>
+    <button matButton type="submit" [disabled]="!userForm.valid">Create</button>
+  </mat-dialog-actions>
+</form>

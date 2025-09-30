@@ -17,9 +17,22 @@
         </tr>
       } @empty {
         <tr>
-          <td [colSpan]="3">There are no users</td>
+          <td colSpan="3">There are no users</td>
         </tr>
       }
     </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3">
+          <button
+            matButton="filled"
+            (click)="openAddUserDialog()"
+            [disabled]="addUserDisabled$ | async"
+          >
+            Add User
+          </button>
+        </td>
+      </tr>
+    </tfoot>
   </table>
 </section>
