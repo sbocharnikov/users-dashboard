@@ -13,6 +13,7 @@ describe('UserStatus', () => {
 
     fixture = TestBed.createComponent(UserStatus);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('user', { id: 1, name: 'Test', active: false });
     fixture.detectChanges();
   });
 
