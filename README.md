@@ -2,12 +2,27 @@
 
 The application with table of users
 
-## Development server
+## Steps to run application locally
 
-To start a local development server, run:
-
+1. Clone the repository:
 ```bash
-ng serve
+git clone git@github.com:sbocharnikov/users-dashboard.git
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+2. Go to the folder:
+```bash
+cd users-dashboard
+```
+
+3. Install dependencies:
+```bash
+npm install
+```
+4. Start a local development server:
+
+```bash
+npm run start
+```
+
+Once the server is running, open your browser and navigate to 
+[http://localhost:4200/](http://localhost:4200/). The application will automatically reload whenever you modify any of the source files.

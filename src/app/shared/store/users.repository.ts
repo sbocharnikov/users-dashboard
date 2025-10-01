@@ -17,7 +17,7 @@ const store = new Store({ name: 'users', state, config });
 
 @Injectable({ providedIn: 'root' })
 export class UsersRepository {
-  users$ = store.pipe(selectAllEntities(), shareReplay({ refCount: true }));
+  users$ = store.pipe(selectAllEntities(), shareReplay({ refCount: true, bufferSize: 1 }));
 
   changeUserStatus(id: number): void {
     store.update(updateEntities(id, (entity) => ({ ...entity, active: !entity.active })));

@@ -50,7 +50,7 @@ export class AddUserDialog {
     this.dialogRef.close();
   }
 
-  saveUser(): void {
+  createUser(): void {
     this.userForm.markAllAsTouched();
 
     if (!this.userForm.valid) {
