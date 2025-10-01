@@ -2,6 +2,7 @@ import { createState, Store } from '@ngneat/elf';
 import { addEntities, selectAllEntities, updateEntities, withEntities } from '@ngneat/elf-entities';
 import { IUser } from '@app/shared/interfaces/user.interface';
 import { Injectable } from '@angular/core';
+import { shareReplay } from 'rxjs';
 
 const { state, config } = createState(
   withEntities<IUser>({
@@ -16,7 +17,7 @@ const store = new Store({ name: 'users', state, config });
 
 @Injectable({ providedIn: 'root' })
 export class UsersRepository {
-  users$ = store.pipe(selectAllEntities());
+  users$ = store.pipe(selectAllEntities(), shareReplay({ refCount: true }));
 
   changeUserStatus(id: number): void {
     store.update(updateEntities(id, (entity) => ({ ...entity, active: !entity.active })));
