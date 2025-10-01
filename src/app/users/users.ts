@@ -18,7 +18,7 @@ import { AddUserDialog } from './add-user-dialog/add-user-dialog';
 export class Users {
   private usersRepo = inject(UsersRepository);
   users$: Observable<IUser[]> = this.usersRepo.users$;
-  readonly dialog = inject(MatDialog);
+  private dialog = inject(MatDialog);
   readonly addUserDisabled$ = this.users$.pipe(
     map((users) => !(users.every((user) => user.active) && users.length < 5)),
   );

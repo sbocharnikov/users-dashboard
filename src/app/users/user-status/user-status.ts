@@ -12,7 +12,7 @@ import { UsersRepository } from '@app/shared/store/users.repository';
 })
 export class UserStatus {
   user = input.required<IUser>();
-  usersRepo = inject(UsersRepository);
+  private usersRepo = inject(UsersRepository);
 
   onStatusChange(): void {
     this.usersRepo.changeUserStatus(this.user().id);
